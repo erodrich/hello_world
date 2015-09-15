@@ -1,0 +1,23 @@
+
+<div class="jumbotron">
+  <div class="container">
+    <div class="row">
+    <div class="col-md-6 col-md-offset-1">
+      <h1>Bienvenido!</h1>
+      <p>Registrese y solicite su servicio</p>
+     <p><a class="btn btn-primary btn-lg" href="#" role="button">Registrarse</a></p>
+    </div>
+    </div>
+  </div>
+</div>
+
+<div class="well">
+  <h2 style="text-align: center; padding: 10px;">Viaje seguro a cualquier punto de Lima</h2>
+  
+    <img src="<%= image_url('image_01.jpg')%>" alt="..." class="img-thumbnail">
+    <p>Garantizamos la seguridad de nuestros pasajeros.</p>
+  
+    <img src="<%= image_url('image_02.jpg')%>" alt="..." class="img-thumbnail">
+
+</div>
+

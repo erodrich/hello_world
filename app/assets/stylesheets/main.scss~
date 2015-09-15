@@ -1,0 +1,30 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.jumbotron{
+  background-image: image_url('jumbo_image.jpg');
+  background-size: cover;
+  background-position: 0 0;
+  height: 400px;
+  color:  #FFFFFF;
+  margin-bottom: 0;
+}
+#main{
+  background-color: #FFFFFF;
+}
+img{
+  height: 250px;
+  width: 350px;
+}
+#main h1{
+  text-align: center;
+}
+.well{
+  background-color: #FFFFFF;
+}
+.well img{
+  display: inline;
+}
+
+
