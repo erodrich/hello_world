@@ -11,15 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150916055006) do
+ActiveRecord::Schema.define(version: 20150916180205) do
 
   create_table "users", force: :cascade do |t|
-    t.string   "nombre",     limit: 255
-    t.string   "apellido",   limit: 255
-    t.string   "correo",     limit: 255
-    t.string   "password",   limit: 255
-    t.datetime "created_at",             null: false
-    t.datetime "updated_at",             null: false
+    t.string   "nombre",          limit: 255
+    t.string   "apellido",        limit: 255
+    t.string   "correo",          limit: 255
+    t.string   "password_digest", limit: 255
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
+
+  add_index "users", ["correo"], name: "index_users_on_correo", unique: true, using: :btree
 
 end

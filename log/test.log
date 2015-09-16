@@ -1,0 +1,1261 @@
+  [1m[36m (65.3ms)[0m  [1mDROP DATABASE IF EXISTS `hello_world_test`[0m
+  [1m[35m (0.5ms)[0m  CREATE DATABASE `hello_world_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (40.4ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (15.7ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (63.2ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.4ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (20.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916055006')[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:11:13', '2015-09-16 17:11:13', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:11:13', '2015-09-16 17:11:13', 298486374)[0m
+  [1m[35m (5.6ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:11:37', '2015-09-16 17:11:37', 980190962)
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:11:37', '2015-09-16 17:11:37', 298486374)[0m
+  [1m[35m (3.5ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.8ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:13:07', '2015-09-16 17:13:07', 980190962)
+  [1m[36mFixture Insert (0.8ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:13:07', '2015-09-16 17:13:07', 298486374)[0m
+  [1m[35m (3.0ms)[0m  COMMIT
+  [1m[36m (0.7ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:13:22', '2015-09-16 17:13:22', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:13:22', '2015-09-16 17:13:22', 298486374)[0m
+  [1m[35m (4.7ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (1.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.9ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.7ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:14:40', '2015-09-16 17:14:40', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:14:40', '2015-09-16 17:14:40', 298486374)[0m
+  [1m[35m (11.0ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+---------------------------------------
+UserTest: test_debe_tener_nombre_valido
+---------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.6ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:19:17', '2015-09-16 17:19:17', 980190962)
+  [1m[36mFixture Insert (0.4ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:19:17', '2015-09-16 17:19:17', 298486374)[0m
+  [1m[35m (3.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (1.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------
+UserTest: test_debe_tener_nombre_valido
+---------------------------------------
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.7ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (1.1ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:21:43', '2015-09-16 17:21:43', 980190962)
+  [1m[36mFixture Insert (0.2ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:21:43', '2015-09-16 17:21:43', 298486374)[0m
+  [1m[35m (5.0ms)[0m  COMMIT
+  [1m[36m (1.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (1.2ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.9ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:24:39', '2015-09-16 17:24:39', 980190962)
+  [1m[36mFixture Insert (1.1ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:24:39', '2015-09-16 17:24:39', 298486374)[0m
+  [1m[35m (5.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (1.1ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.6ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (1.3ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:25:43', '2015-09-16 17:25:43', 980190962)
+  [1m[36mFixture Insert (0.3ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:25:43', '2015-09-16 17:25:43', 298486374)[0m
+  [1m[35m (4.5ms)[0m  COMMIT
+  [1m[36m (0.6ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (12.5ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:32:54', '2015-09-16 17:32:54', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:32:54', '2015-09-16 17:32:54', 298486374)[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36m (0.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (1.0ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (10.1ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:34:56', '2015-09-16 17:34:56', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:34:56', '2015-09-16 17:34:56', 298486374)[0m
+  [1m[35m (23.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (1.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (15.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:20', '2015-09-16 17:38:20', 980190962)
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:20', '2015-09-16 17:38:20', 298486374)[0m
+  [1m[35m (23.5ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:25', '2015-09-16 17:38:25', 980190962)
+  [1m[36mFixture Insert (0.5ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:25', '2015-09-16 17:38:25', 298486374)[0m
+  [1m[35m (13.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UsersControllerTest: test_should_destroy_user
+---------------------------------------------
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `users`
+Processing by UsersController#destroy as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (1.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SAVEPOINT active_record_1
+  [1m[36mSQL (0.4ms)[0m  [1mDELETE FROM `users` WHERE `users`.`id` = 980190962[0m
+  [1m[35m (0.3ms)[0m  RELEASE SAVEPOINT active_record_1
+Redirected to http://test.host/users
+Completed 302 Found in 6ms (ActiveRecord: 2.1ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (3.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UsersControllerTest: test_should_get_edit
+-----------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+  Rendered users/_form.html.erb (122.7ms)
+  Rendered users/edit.html.erb within layouts/application (135.1ms)
+Completed 200 OK in 1794ms (Views: 1792.2ms | ActiveRecord: 0.4ms)
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------
+UsersControllerTest: test_should_get_new
+----------------------------------------
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (10.8ms)
+  Rendered users/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 19ms (Views: 18.6ms | ActiveRecord: 0.0ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_update_user
+--------------------------------------------
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+Processing by UsersController#update as HTML
+  Parameters: {"user"=>{"apellido"=>"MyString", "correo"=>"MyString", "nombre"=>"MyString", "password"=>"[FILTERED]"}, "id"=>"980190962"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1
+  [1m[36m (0.6ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/_form.html.erb (10.4ms)
+  Rendered users/edit.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 23ms (Views: 17.4ms | ActiveRecord: 1.7ms)
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------------------
+UsersControllerTest: test_should_show_user
+------------------------------------------
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"980190962"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 9ms (Views: 7.6ms | ActiveRecord: 0.8ms)
+  [1m[36m (1.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (1.0ms)[0m  BEGIN
+--------------------------------------------
+UsersControllerTest: test_should_create_user
+--------------------------------------------
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `users`
+Processing by UsersController#create as HTML
+  Parameters: {"user"=>{"apellido"=>"MyString", "correo"=>"MyString", "nombre"=>"MyString", "password"=>"[FILTERED]"}}
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK TO SAVEPOINT active_record_1
+  Rendered users/_form.html.erb (9.6ms)
+  Rendered users/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 19ms (Views: 16.7ms | ActiveRecord: 0.7ms)
+  [1m[36m (0.6ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35m (1.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+------------------------------------------
+UsersControllerTest: test_should_get_index
+------------------------------------------
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 980190962 LIMIT 1
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (1.7ms)[0m  [1mSELECT `users`.* FROM `users`[0m
+  Rendered users/index.html.erb within layouts/application (4.5ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 1.7ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+MainControllerTest: test_should_get_contact
+-------------------------------------------
+Processing by MainController#contact as HTML
+  Rendered main/contact.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 13ms (Views: 12.8ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+MainControllerTest: test_should_get_about
+-----------------------------------------
+Processing by MainController#about as HTML
+  Rendered main/about.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 25ms (Views: 24.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+MainControllerTest: test_should_get_index
+-----------------------------------------
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (21.0ms)
+Completed 200 OK in 30ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[35m (0.6ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[35m (0.7ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.5ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.2ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:49', '2015-09-16 17:38:49', 980190962)
+  [1m[36mFixture Insert (0.7ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:38:49', '2015-09-16 17:38:49', 298486374)[0m
+  [1m[35m (2.4ms)[0m  COMMIT
+  [1m[36m (0.5ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.3ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35mFixture Insert (0.2ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:44:10', '2015-09-16 17:44:10', 980190962)
+  [1m[36mFixture Insert (10.8ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password`, `created_at`, `updated_at`, `id`) VALUES ('MyString', 'MyString', 'MyString', 'MyString', '2015-09-16 17:44:10', '2015-09-16 17:44:10', 298486374)[0m
+  [1m[35m (14.5ms)[0m  COMMIT
+  [1m[36m (1.1ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.9ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[35m (0.5ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`correo`, `nombre`, `apellido`, `created_at`, `updated_at`) VALUES ('user@example.com', 'Carlos', 'Martinez', '2015-09-16 17:44:10', '2015-09-16 17:44:10')
+  [1m[36m (0.6ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (21.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1[0m
+  [1m[35mUser Exists (1.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.6ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (28.7ms)[0m  [1mDROP DATABASE IF EXISTS `hello_world_test`[0m
+  [1m[35m (0.8ms)[0m  CREATE DATABASE `hello_world_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (32.2ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (61.6ms)[0m  CREATE UNIQUE INDEX `index_users_on_correo` USING btree ON `users` (`correo`) 
+  [1m[36m (13.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (123.1ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (2.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916174804')
+  [1m[36m (2.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916055006')[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.4ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.3ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.5ms)[0m  DELETE FROM `users`
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.8ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36m (14.1ms)[0m  [1mDROP DATABASE IF EXISTS `hello_world_test`[0m
+  [1m[35m (0.5ms)[0m  CREATE DATABASE `hello_world_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (1330.1ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (62.0ms)[0m  CREATE UNIQUE INDEX `index_users_on_correo` USING btree ON `users` (`correo`) 
+  [1m[36m (75.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (84.6ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916180205')
+  [1m[36m (15.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916174804')[0m
+  [1m[35m (2.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916055006')
+  [1m[35mActiveRecord::SchemaMigration Load (0.5ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36m (0.4ms)[0m  [1mSELECT @@FOREIGN_KEY_CHECKS[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 0
+  [1m[36m (0.5ms)[0m  [1mBEGIN[0m
+  [1m[35mFixture Delete (0.4ms)[0m  DELETE FROM `users`
+  [1m[36m (0.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.2ms)[0m  SET FOREIGN_KEY_CHECKS = 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[35m (1.0ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.9ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Carlos', 'Martinez', 'user@example.com', '$2a$04$OnoGtpGa24oQtFpoB2KjqeEy1/e2pVSqRJRAANAb2dqSxdbcbeQ.S', '2015-09-16 18:02:54', '2015-09-16 18:02:54')
+  [1m[36m (1.2ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (2.8ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1[0m
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+UserTest: test_password_debe_existir_(nonblank)
+-----------------------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (1.1ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1[0m
+  [1m[35mUser Exists (1.0ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1
+  [1m[36mUser Exists (1.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------
+UserTest: test_password_debe_tener_un_minimo_de_caracteres
+----------------------------------------------------------
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[36m (0.4ms)[0m  [1mSAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK TO SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.5ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (1.1ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (3.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------
+UserTest: test_password_debe_existir_(nonblank)
+-----------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.8ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------
+UserTest: test_password_debe_tener_un_minimo_de_caracteres
+----------------------------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (1.6ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[36mUser Exists (1.2ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@foo.COM' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'A_US-ER@foo.bar.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'first.last@foo.jp' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'alice+bob@baz.cn' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[35m (0.4ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Carlos', 'Martinez', 'user@example.com', '$2a$04$wnARjnhhvvFtJuB2fZGrW.WThE8jAqaeP0ZRB9FaC2NIDfPrWOc5C', '2015-09-16 18:10:52', '2015-09-16 18:10:52')
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (25.6ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[35mUser Exists (1.2ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+----------------------------------------------------------
+UserTest: test_password_debe_tener_un_minimo_de_caracteres
+----------------------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.5ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.9ms)[0m  [1mBEGIN[0m
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.7ms)[0m  BEGIN
+-----------------------------------------------
+UserTest: test_password_debe_existir_(nonblank)
+-----------------------------------------------
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Carlos', 'Martinez', 'user@example.com', '$2a$04$PCwYCar4GhTVF2yg0i9.EOWHq9Z6Ma62PdOprmIaFRxXZo3qbL9zW', '2015-09-16 18:11:30', '2015-09-16 18:11:30')
+  [1m[36m (0.3ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (3.5ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (1.3ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mROLLBACK[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.4ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.5ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_correo_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa@example.co' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+-----------------------------------------
+UserTest: test_nombre_debe_tener_un_valor
+-----------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-----------------------------------------
+UserTest: test_correo_debe_tener_un_valor
+-----------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = '     ' LIMIT 1[0m
+  [1m[35m (1.0ms)[0m  ROLLBACK
+  [1m[36m (0.8ms)[0m  [1mBEGIN[0m
+-----------------------------------------------------------------
+UserTest: test_correo_de_rechazar_direcciones_de_correo_invalidas
+-----------------------------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example,com' LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user_at_foo.org' LIMIT 1[0m
+  [1m[35mUser Exists (0.8ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user.name@example.' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar_baz.com' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'foo@bar+baz.com' LIMIT 1
+  [1m[36m (0.4ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+------------------------------
+UserTest: test_debe_ser_valido
+------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_apellido_debe_tener_un_valor
+-------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------
+UserTest: test_apellido_no_debe_ser_muy_largo
+---------------------------------------------
+  [1m[36mUser Exists (0.3ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-------------------------------------------
+UserTest: test_los_correos_deben_ser_unicos
+-------------------------------------------
+  [1m[35m (0.3ms)[0m  SAVEPOINT active_record_1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35mSQL (1.7ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Carlos', 'Martinez', 'user@example.com', '$2a$04$4LwMVzWjgNPyjmxS/mA0EOND.yImKZbvtFacbaHMQpVUDpeOXUrrK', '2015-09-16 18:12:09', '2015-09-16 18:12:09')
+  [1m[36m (0.8ms)[0m  [1mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@EXAMPLE.COM' LIMIT 1
+  [1m[36m (24.9ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+----------------------------------------------------------
+UserTest: test_password_debe_tener_un_minimo_de_caracteres
+----------------------------------------------------------
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+----------------------------------------------------------------
+UserTest: test_correo_debe_aceptar_direcciones_de_correo_validas
+----------------------------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'USER@foo.COM' LIMIT 1[0m
+  [1m[35mUser Exists (1.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'A_US-ER@foo.bar.org' LIMIT 1
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'first.last@foo.jp' LIMIT 1[0m
+  [1m[35mUser Exists (0.4ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'alice+bob@baz.cn' LIMIT 1
+  [1m[36m (0.7ms)[0m  [1mROLLBACK[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+-------------------------------------------
+UserTest: test_nombre_no_debe_ser_muy_largo
+-------------------------------------------
+  [1m[36mUser Exists (0.4ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1[0m
+  [1m[35m (0.3ms)[0m  ROLLBACK
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+-----------------------------------------------
+UserTest: test_password_debe_existir_(nonblank)
+-----------------------------------------------
+  [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
