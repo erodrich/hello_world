@@ -8,7 +8,5 @@
 body{
   background-color: #FFCC4F;
 }
-.container{
-  background-color: #FFFFFF;
-}
+
 
