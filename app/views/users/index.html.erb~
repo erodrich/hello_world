@@ -1,6 +1,10 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Users</h1>
+<h1>Listado de Usuarios</h1>
+
+<%= link_to 'Nuevo', new_user_path %>
+
+<%= will_paginate %>
 
 <table>
   <thead>
@@ -8,7 +12,6 @@
       <th>Nombre</th>
       <th>Apellido</th>
       <th>Correo</th>
-      <th>Password</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,18 +19,15 @@
   <tbody>
     <% @users.each do |user| %>
       <tr>
-        <td><%= user.nombre %></td>
-        <td><%= user.apellido %></td>
-        <td><%= user.correo %></td>
-        <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to user.nombre + " " + user.apellido, user %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este usuario?' } %></td>
       </tr>
     <% end %>
   </tbody>
 </table>
+<%= will_paginate %>
 
 <br>
 
-<%= link_to 'New User', new_user_path %>
+
