@@ -1259,3 +1259,61 @@ UserTest: test_password_debe_existir_(nonblank)
 -----------------------------------------------
   [1m[35mUser Exists (0.5ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'user@example.com' LIMIT 1
   [1m[36m (0.3ms)[0m  [1mROLLBACK[0m
+  [1m[36m (41.1ms)[0m  [1mDROP DATABASE IF EXISTS `hello_world_test`[0m
+  [1m[35m (1.4ms)[0m  CREATE DATABASE `hello_world_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (53.6ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (69.1ms)[0m  CREATE UNIQUE INDEX `index_users_on_correo` USING btree ON `users` (`correo`) 
+  [1m[36m (44.6ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (63.9ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.4ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (2.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916180205')
+  [1m[36m (1.9ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916174804')[0m
+  [1m[35m (0.9ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916055006')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (1.0ms)[0m  COMMIT
+  [1m[36m (0.3ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.6ms)[0m  BEGIN
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2015-09-18 00:45:24 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 1290ms (Views: 1283.8ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-09-18 00:45:25 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"correo"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`correo` = '' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 16ms (Views: 8.3ms | ActiveRecord: 2.0ms)
+  [1m[35m (1.1ms)[0m  ROLLBACK
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  SELECT @@FOREIGN_KEY_CHECKS
+  [1m[36m (0.2ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 0[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mFixture Delete (0.4ms)[0m  [1mDELETE FROM `users`[0m
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.4ms)[0m  [1mSET FOREIGN_KEY_CHECKS = 1[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+---------------------------------------------------
+UsersLoginTest: test_login_with_invalid_information
+---------------------------------------------------
+Started GET "/login" for 127.0.0.1 at 2015-09-18 00:47:07 -0500
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (36.4ms)
+Completed 200 OK in 163ms (Views: 156.3ms | ActiveRecord: 0.0ms)
+Started POST "/login" for 127.0.0.1 at 2015-09-18 00:47:07 -0500
+Processing by SessionsController#create as HTML
+  Parameters: {"session"=>{"correo"=>"", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`correo` = '' LIMIT 1[0m
+  Rendered sessions/new.html.erb within layouts/application (3.6ms)
+Completed 200 OK in 15ms (Views: 8.1ms | ActiveRecord: 1.7ms)
+Started GET "/" for 127.0.0.1 at 2015-09-18 00:47:07 -0500
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 28ms (Views: 27.3ms | ActiveRecord: 0.0ms)
+  [1m[35m (0.4ms)[0m  ROLLBACK

@@ -1,0 +1,17 @@
+<% provide(:title, "Iniciar Sesion") %>
+<h1>Iniciar Sesion</h1>
+
+<%= simple_form_for(:session, url: login_path) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :correo, placeholder: 'user@domain.com' %>
+    <%= f.input :password %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<p>Aun no estas registrado? <%= link_to "Registrate ahora", new_user_path %></p>
