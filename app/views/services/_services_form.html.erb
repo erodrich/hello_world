@@ -1,0 +1,18 @@
+<%= simple_form_for(@service) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :addr_from %>
+    <%= f.input :addr_to %>
+    <%= f.input :date %>
+    <%= f.input :time %>
+    <%= f.input :num_passengers %>
+    <%= f.input :type_vehicle %>
+    <%= f.input :payment_method %>
+    <%= f.input :status, :as => :hidden, :input_html => { :value => "En proceso" } %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.submit "Enviar" %>
+  </div>
+<% end %>

@@ -11,7 +11,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150918083740) do
+ActiveRecord::Schema.define(version: 20150920051756) do
+
+  create_table "services", force: :cascade do |t|
+    t.string   "addr_from",      limit: 255
+    t.string   "addr_to",        limit: 255
+    t.date     "date"
+    t.time     "time"
+    t.integer  "num_passengers", limit: 4
+    t.string   "type_vehicle",   limit: 255
+    t.string   "payment_method", limit: 255
+    t.string   "status",         limit: 255
+    t.integer  "user_id",        limit: 4
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "services", ["user_id", "created_at"], name: "index_services_on_user_id_and_created_at", using: :btree
+  add_index "services", ["user_id"], name: "index_services_on_user_id", using: :btree
 
   create_table "users", force: :cascade do |t|
     t.string   "nombre",          limit: 255
@@ -25,4 +42,5 @@ ActiveRecord::Schema.define(version: 20150918083740) do
 
   add_index "users", ["correo"], name: "index_users_on_correo", unique: true, using: :btree
 
+  add_foreign_key "services", "users"
 end

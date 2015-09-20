@@ -20,6 +20,11 @@
 </p>
 
 
-
 <%= link_to 'Editar', edit_user_path(@user) %>
+<%= render 'services/services_form.html.erb' %>
 
+<% if @past_services %>
+      <h3>Servicios (<%= @past_services.count %>)</h3>
+      <%= render 'services/service.html.erb' %>
+      
+<% end %>

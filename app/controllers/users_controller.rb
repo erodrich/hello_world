@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:edit, :update]
-  before_action :admin_user, only: [:show, :destroy]
+  before_action :correct_user,   only: [:show, :edit, :update]
+  before_action :admin_user, only: [:destroy]
   #  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -14,6 +14,11 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+#    @services = @user.services.paginate(page: params[:page])
+    if logged_in?
+      @service = current_user.services.build
+      @past_services = current_user.user_services.paginate(page: params[:page])
+    end
   end
 
   # GET /users/new
@@ -79,14 +84,7 @@ class UsersController < ApplicationController
       params.require(:user).permit(:nombre, :apellido, :correo, :password)
     end
     
-    def logged_in_user
-      unless logged_in?
-        store_location
-        flash[:danger] = "Por favor, inicie su sesion"
-        redirect_to login_url
-      end
-    end
-    
+  
     # Confirms the correct user.
     def correct_user
       @user = User.find(params[:id])

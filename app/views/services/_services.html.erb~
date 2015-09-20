@@ -1,0 +1,17 @@
+<%= will_paginate @past_services %>
+<table>
+  <thead>
+    <tr>
+      <th>Desde</th>
+      <th>Hasta</th>
+      <th>Estado</th>
+      <th>Fecha</th>
+    </tr>
+  </thead>
+  <tbody>
+
+
+<%= render @past_services %>
+  </tbody>
+</table>
+

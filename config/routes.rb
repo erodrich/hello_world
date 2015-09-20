@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   #------------
   resources :users
+  resources :services,   only: [:create]
   get 'main/index'
 
   get 'main/about'

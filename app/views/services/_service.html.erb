@@ -1,0 +1,23 @@
+<table>
+  <thead>
+    <tr>
+      <th>Desde</th>
+      <th>Destino</th>
+      <th>Fecha</th>
+      <th>Hora</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @past_services.each do |service| %>
+      <tr>
+        <td><%= service.addr_from %></td>
+        <td><%= service.addr_to %></td>
+        <td><%= service.date %></td>
+        <td><%= service.time %></td>
+        <td><%= service.status %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

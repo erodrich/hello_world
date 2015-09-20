@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :services, dependent: :destroy
   before_save { self.correo = correo.downcase }
   validates :nombre, presence: true, length: {maximum: 50}
   validates :apellido, presence: true, length: {maximum: 50}
@@ -7,4 +8,8 @@ class User < ActiveRecord::Base
   
   has_secure_password
   validates :password, presence: true, length: { minimum: 6}
+  
+  def user_services
+    services
+  end
 end

@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  addr_from: MyString
+  addr_to: MyString
+  date: 2015-09-20
+  time: 2015-09-20 00:17:56
+  num_passengers: 1
+  type_vehicle: MyString
+  payment_method: MyString
+  status: MyString
+  user_id: 
+
+two:
+  addr_from: MyString
+  addr_to: MyString
+  date: 2015-09-20
+  time: 2015-09-20 00:17:56
+  num_passengers: 1
+  type_vehicle: MyString
+  payment_method: MyString
+  status: MyString
+  user_id: 
