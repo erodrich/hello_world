@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
+  resources :drivers
   #Login routes
   get    'login'   => 'sessions#new'
   post   'login'   => 'sessions#create'
   delete 'logout'  => 'sessions#destroy'
   #------------
   resources :users
-  resources :services,   only: [:create]
+  resources :services,   only: [:create, :show, :edit, :update]
+  resources :admin, only: [:index]
+  
+  get 'admin/services'
+  get 'admin/drivers'
   get 'main/index'
 
   get 'main/about'

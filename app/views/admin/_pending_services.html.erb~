@@ -1,0 +1,26 @@
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Id</th>
+      <th>Desde</th>
+      <th>Destino</th>
+      <th>Fecha de Solicitud</th>
+      <th>Estado</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @pending_services.each do |service| %>
+      <tr>
+        <td><%= service.user_id %></td>
+        <td><%= link_to service.id, service_path(service.id)  %></td>
+        <td><%= service.addr_from %></td>
+        <td><%= service.addr_to %></td>
+        <td><%= service.created_at %></td>
+        <td><%= service.status %></td>
+        <td><%= link_to 'Editar', edit_user_path(user) %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

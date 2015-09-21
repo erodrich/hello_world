@@ -7,7 +7,11 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
-      redirect_back_or user
+      if user.admin
+          redirect_to '/admin'
+        else
+          redirect_to user
+        end
     else
       flash.now[:danger] = 'Correo o contraseña no validos'
       render 'new'

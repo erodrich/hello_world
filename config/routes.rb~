@@ -5,7 +5,11 @@ Rails.application.routes.draw do
   delete 'logout'  => 'sessions#destroy'
   #------------
   resources :users
-  resources :servicios,   only: [:create]
+  resources :services,   only: [:create, :show, :edit]
+  resources :admin, only: [:index]
+  
+  get 'admin/services'
+  get 'admin/drivers'
   get 'main/index'
 
   get 'main/about'

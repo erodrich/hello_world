@@ -25,6 +25,6 @@
 
 <% if @past_services %>
       <h3>Servicios (<%= @past_services.count %>)</h3>
-      <%= render service %>
+      <%= render 'services/service.html.erb' %>
       
 <% end %>

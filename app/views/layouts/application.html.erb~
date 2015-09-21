@@ -37,32 +37,55 @@
     <%= javascript_include_tag "application" %>
   </head>
   <body>
-
+<!-- Menu de navegacion -->
+<!-- Se adecua a la condicion del usuario (Cliente, Administrador o Chofer) -->
     <div class="navbar navbar-inverse navbar-default navbar-static-top">
       <div class="container">
         <a class="navbar-brand" href="/">Taxi Xpress</a>
         <div class="navbar-right navbar-collapse collapse navbar-responsive-collapse">
           <ul class="nav navbar-nav">
-            <li><%= link_to "Nuestros Servicios", main_product_path  %></li>
-            <li><%= link_to "Acerca de nosostros", main_about_path  %></li>
-            <li><%= link_to "Contacto", main_contact_path  %></li>
             <% if logged_in? %>
-              <li class="dropdown"><a href= "#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nombre %><b class="caret"></b></a>
-               <ul class="dropdown-menu">
-                 <li><%= link_to "Perfil", current_user %></li>
-                 <li><%= link_to "Editar", edit_user_path(current_user.id) %></li>
-                 <li class="divider"></li>
-                 <li><%= link_to "Cerrar Sesion", logout_path, method: "delete" %></li>
-               </ul>
-              </li>
+              <!-- Menu Administradores -->
+              <% if current_user.admin? %>
+                <li role="presentation" class="active"><a href="/admin">Inicio</a></li>
+                <li role="presentation"><%= link_to "Usuarios", users_path %></li>
+                <li role="presentation"><a href="">Choferes</a></li>
+                <li role="presentation"><%= link_to "Servicios", admin_services_path %></li>
+                <li class="dropdown"><a href= "#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nombre %><b class="caret"></b></a>
+                 <ul class="dropdown-menu">
+                   <li><%= link_to "Perfil", current_user %></li>
+                   <li><%= link_to "Editar", edit_user_path(current_user) %></li>
+                   <li class="divider"></li>
+                   <li><%= link_to "Cerrar Sesion", logout_path, method: "delete" %></li>
+                 </ul>
+                </li>
+              <!-- Menu otros Usuarios-->
+              <% else %>
+                <li><%= link_to "Nuestros Servicios", main_product_path  %></li>
+                <li><%= link_to "Acerca de nosostros", main_about_path  %></li>
+                <li><%= link_to "Contacto", main_contact_path  %></li>
+            
+                <li class="dropdown"><a href= "#" class="dropdown-toggle" data-toggle="dropdown"><%= current_user.nombre %><b class="caret"></b></a>
+                 <ul class="dropdown-menu">
+                   <li><%= link_to "Perfil", current_user %></li>
+                   <li><%= link_to "Editar", edit_user_path(current_user) %></li>
+                   <li class="divider"></li>
+                   <li><%= link_to "Cerrar Sesion", logout_path, method: "delete" %></li>
+                 </ul>
+                </li>
+              <% end %>  
+             <!-- Menu Usuarios no Registrados -->
             <% else %>
+             <li><%= link_to "Nuestros Servicios", main_product_path  %></li>
+             <li><%= link_to "Acerca de nosostros", main_about_path  %></li>
+             <li><%= link_to "Contacto", main_contact_path  %></li>
              <li><<a class="btn btn-default" href="/login" role="button">Ingresar</a></li>
             <% end %>
           </ul>
         </div>
       </div>
     </div>
-
+<!-- Fin Menu de navegacion -->
     <div class="container">
 
         <div class="col-lg-12">

@@ -4,7 +4,7 @@
 
 <%= link_to 'Nuevo', new_user_path %>
 
-<%= will_paginate %>
+<%= will_paginate @users%>
 
 <table>
   <thead>
@@ -21,7 +21,9 @@
       <tr>
         <td><%= link_to user.nombre + " " + user.apellido, user %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
-        <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este usuario?' } %></td>
+        <% if current_user.admin? && !current_user?(user) %>
+          <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este usuario?' } %></td>
+        <% end %>
       </tr>
     <% end %>
   </tbody>

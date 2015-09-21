@@ -1,13 +1,15 @@
 class UsersController < ApplicationController
-  before_action :logged_in_user, only: [:index, :edit, :update]
-  before_action :correct_user,   only: [:show, :edit, :update]
-  before_action :admin_user, only: [:destroy]
+  before_action :logged_in_user, only: [:show]
+  before_action :correct_user, only: [:show, :edit, :update]
+  before_action :admin_user, only: [:index, :edit, :update, :destroy]
   #  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.paginate(page: params[:page])
+    if current_user.admin 
+      @users = User.paginate(page: params[:page])
+    end
   end
 
   # GET /users/1
@@ -39,8 +41,12 @@ class UsersController < ApplicationController
       if @user.save
         log_in @user
         flash[:success] = "Ya estas registrado en nuestra aplicacion"
-        format.html { redirect_to @user }
-        format.json { render :show, status: :created, location: @user }
+        if @user.admin
+          format.html {redirect_to admin}
+        else
+          format.html { redirect_to @user }
+          format.json { render :show, status: :created, location: @user }
+        end
       else
         format.html { render :new }
         format.json { render json: @user.errors, status: :unprocessable_entity }
@@ -89,11 +95,6 @@ class UsersController < ApplicationController
     def correct_user
       @user = User.find(params[:id])
       redirect_to(root_url) unless current_user.admin? || current_user?(@user)
-    end
-    
-    #Confirms an admin user.
-    def admin_user
-      redirect_to(root_url) unless current_user.admin?
     end
     
 end

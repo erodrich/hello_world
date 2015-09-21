@@ -5,3 +5,4 @@ class Service < ActiveRecord::Base
   validates :addr_from, presence: true
   validates :addr_to, presence: true
 end
+

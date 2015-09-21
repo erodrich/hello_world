@@ -14,4 +14,4 @@
   </div>
 <% end %>
 
-<p>Aun no estas registrado? <%= link_to "Registrate ahora", new_users_path %></p>
+<p>Aun no estas registrado? <%= link_to "Registrate ahora", new_user_path %></p>
