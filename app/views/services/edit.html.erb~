@@ -1,6 +1,0 @@
-<h1>Editando Servicio</h1>
-
-<%= render 'services_form' %>
-
-<%= link_to 'Mostrar', @user %>
-

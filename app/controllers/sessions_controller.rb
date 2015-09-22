@@ -4,7 +4,7 @@ class SessionsController < ApplicationController
   
   def create
     user = User.find_by(correo: params[:session][:correo].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user && user.authenticate(params[:session][:password]) && user.active?
       # Log the user in and redirect to the user's show page.
       log_in user
       if user.admin

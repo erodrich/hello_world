@@ -5,11 +5,11 @@ before_action :admin_user, only: [:index, :services, :drivers]
 
 def index
   @users = User.paginate(page: params[:page])
-  @pending_services = Service.where(status: 'En proceso')
+  @services = Service.where(status: 'Pendiente')
 end
 
 def services
-  @pending_services = Service.all
+  @services = Service.all
 end
 
 def drivers

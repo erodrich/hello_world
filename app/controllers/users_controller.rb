@@ -36,20 +36,32 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
-    respond_to do |format|
-      if @user.save
-        log_in @user
-        flash[:success] = "Ya estas registrado en nuestra aplicacion"
-        if @user.admin
-          format.html {redirect_to admin}
+    if @user.driver
+      @user.active = false
+      respond_to do |format|
+        if @user.save
+          flash[:success] = "En breve se estaran comunicando con usted"
+          format.html { redirect_to root_url }
         else
-          format.html { redirect_to @user }
-          format.json { render :show, status: :created, location: @user }
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
         end
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    else
+      respond_to do |format|
+        if @user.save
+          log_in @user
+          flash[:success] = "Ya estas registrado en nuestra aplicacion"
+          if @user.admin
+            format.html {redirect_to admin}
+          else
+            format.html { redirect_to @user }
+            format.json { render :show, status: :created, location: @user }
+          end
+        else
+          format.html { render :new }
+          format.json { render json: @user.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
@@ -87,7 +99,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :apellido, :correo, :password)
+      params.require(:user).permit(:nombre, :apellido, :correo, :password, :password_confirmation, :driver)
     end
     
   

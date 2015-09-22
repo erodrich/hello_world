@@ -15,10 +15,16 @@ end
 def show
   @service = Service.find(params[:id])
   @user = User.find(@service.user_id)
+  if @service.driver_id 
+    @driver = User.find(@service.driver_id)
+  end
 end
 
 def edit
   @service = Service.find(params[:id])
+  if current_user.admin?
+    @drivers = User.where(driver: true, active: true)
+  end
 end
 
   # PATCH/PUT /services/1
@@ -39,6 +45,6 @@ end
 private
 
   def service_params
-    params.require(:service).permit(:addr_from, :addr_to, :date, :time, :num_passengers, :payment_method, :type_vehicle, :status)
+    params.require(:service).permit(:addr_from, :addr_to, :date, :time, :num_passengers, :payment_method, :type_vehicle, :status, :driver_id)
   end
 end

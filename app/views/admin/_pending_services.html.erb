@@ -11,7 +11,7 @@
   </thead>
 
   <tbody>
-    <% @pending_services.each do |service| %>
+    <% @services.each do |service| %>
       <tr>
         <td><%= service.user_id %></td>
         <td><%= link_to service.id, service_path(service.id)  %></td>

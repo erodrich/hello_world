@@ -47,3 +47,12 @@
   <strong>Estado:</strong>
   <%= @service.status %>
 </p>
+
+<% if current_user.admin? %>
+  <p>
+    <strong>Conductor:</strong>
+    <%= @driver.nombre + " " + @driver.apellido %>
+  </p>
+<% end %>
+<%= link_to 'Ver todos los Servicios', admin_services_path %>
+<%= link_to 'Regresar a Servicios Pendientes', admin_index_path %>

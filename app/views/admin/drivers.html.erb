@@ -4,8 +4,8 @@
   <thead>
     <tr>
       <th>Nombre</th>
-      <th>Apellido</th>
-      <th>Correo</th>
+      <th>Activo</th>
+      <th></th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -14,7 +14,9 @@
     <% @drivers.each do |user| %>
       <tr>
         <td><%= link_to user.nombre + " " + user.apellido, user %></td>
+        <td><%= user.active?? "Si" : "No"  %></td>
         <td><%= link_to 'Editar', edit_user_path(user) %></td>
+        <td><%= link_to 'Detalle', user_path(user) %></td>
         <% if current_user.admin? && !current_user?(user) %>
           <td><%= link_to 'Eliminar', user, method: :delete, data: { confirm: 'Esta seguro que desea eliminar este usuario?' } %></td>
         <% end %>

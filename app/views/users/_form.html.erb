@@ -7,6 +7,13 @@
     <%= f.input :correo, placeholder: 'user@domain.com' %>
     <%= f.input :password %>
     <%= f.input :password_confirmation, label: 'Confirmar contraseña:' %>
+    <% if @user.driver %>
+      <% if @user.active %>
+        <%= f.input :active, as: :boolean, :default => true%>
+      <% else %>
+        <%= f.input :active, as: :boolean, checked_value: true%>
+      <% end %>
+    <% end %>
   </div>
 
   <div class="form-actions">

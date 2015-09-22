@@ -6,14 +6,14 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 #--begin
-User.create!(nombre:  "Eric",
-             apellido: "Rodrich",
-             correo: "acron.bn@gmail.com",
-             password:              "perito",
-             password_confirmation: "perito",
+User.create!(nombre:  "Juan",
+             apellido: "Perez",
+             correo: "admin@taxixpress.com",
+             password:              "admin01",
+             password_confirmation: "admin01",
              admin: true)
-
-19.times do |n|
+# Creando Clientes
+3.times do |n|
   name  = Faker::Name.name
   last = Faker::Lorem.word
   email = "example-#{n+1}@railstutorial.org"
@@ -24,8 +24,8 @@ User.create!(nombre:  "Eric",
                password:              password,
                password_confirmation: password)
 end
-
-9.times do |n|
+# Creando Choferes
+3.times do |n|
   name  = Faker::Name.name
   last = Faker::Lorem.word
   email = "chofer-#{n+1}@railstutorial.org"
@@ -35,11 +35,13 @@ end
                correo: email,
                password:              password,
                password_confirmation: password,
-               driver: true)
+               driver: true,
+               active: false)
 end
 
-20.times do |i|
-  10.times do
+# Creando Servicios Pendientes de Atencion
+3.times do |i|
+  3.times do
     from = Faker::Address.street_address
     to = Faker::Address.street_address
     sdate = Faker::Date.between(10.days.ago, Date.today)
@@ -54,7 +56,7 @@ end
                  num_passengers: passengers,
                  payment_method: payment,
                  type_vehicle: tipo,
-                 status: "En proceso",
+                 status: "Pendiente",
                  user: User.find(i + 1))
   end
 end
