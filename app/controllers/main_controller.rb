@@ -7,4 +7,10 @@ class MainController < ApplicationController
 
   def contact
   end
+  
+  def solicitar
+  end
+  
+  def confirmacion
+  end
 end

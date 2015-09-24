@@ -12,3 +12,15 @@ Instrucciones
  		bundle install
  - Por ultimo:
  		rake db:create
+
+------------------------------------
+URL de Administracion es:
+
+- http://[host]/admin
+- correo: admin@taxixpress.com
+- password: admin01
+
+------------------------------------
+La base de datos ya cuenta con usuarios y choferes
+La cuenta de los choferes esta desactivada
+El administrador puede asignar servicios a choferes

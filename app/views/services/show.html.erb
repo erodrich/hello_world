@@ -51,7 +51,11 @@
 <% if current_user.admin? %>
   <p>
     <strong>Conductor:</strong>
-    <%= @driver.nombre + " " + @driver.apellido %>
+    <% if @driver %>
+      <%= @driver.nombre + " " + @driver.apellido %>
+    <% else %>
+      <p>Conductor aun no asignado</p>
+    <% end %>
   </p>
 <% end %>
 <%= link_to 'Ver todos los Servicios', admin_services_path %>

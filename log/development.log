@@ -44207,3 +44207,1639 @@ Processing by MainController#index as HTML
   Rendered main/index.html.erb within layouts/application (4.2ms)
   [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
 Completed 200 OK in 212ms (Views: 209.8ms | ActiveRecord: 0.5ms)
+  [1m[36m (10.2ms)[0m  [1mDROP DATABASE IF EXISTS `hello_world_development`[0m
+  [1m[35m (0.6ms)[0m  DROP DATABASE IF EXISTS `hello_world_test`
+  [1m[36m (0.5ms)[0m  [1mCREATE DATABASE `hello_world_development` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`[0m
+  [1m[35m (0.4ms)[0m  CREATE DATABASE `hello_world_test` DEFAULT CHARACTER SET `utf8` COLLATE `utf8_unicode_ci`
+  [1m[36m (17.3ms)[0m  [1mCREATE TABLE `services` (`id` int(11) auto_increment PRIMARY KEY, `addr_from` varchar(255), `addr_to` varchar(255), `date` date, `time` time, `num_passengers` int(11), `type_vehicle` varchar(255), `payment_method` varchar(255), `status` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `driver_id` int(11)) ENGINE=InnoDB[0m
+  [1m[35m (21.1ms)[0m  CREATE  INDEX `index_services_on_user_id_and_created_at` USING btree ON `services` (`user_id`, `created_at`) 
+  [1m[36m (19.6ms)[0m  [1mCREATE  INDEX `index_services_on_user_id` USING btree ON `services` (`user_id`) [0m
+  [1m[35m (10.4ms)[0m  CREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `admin` tinyint(1) DEFAULT 0, `driver` tinyint(1) DEFAULT 0, `active` tinyint(1) DEFAULT 1) ENGINE=InnoDB
+  [1m[36m (23.2ms)[0m  [1mCREATE UNIQUE INDEX `index_users_on_correo` USING btree ON `users` (`correo`) [0m
+  [1m[35m (18.3ms)[0m  ALTER TABLE `services` ADD CONSTRAINT `fk_rails_51a813203f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+
+  [1m[36m (17.3ms)[0m  [1mCREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB[0m
+  [1m[35m (22.5ms)[0m  CREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) 
+  [1m[36m (0.5ms)[0m  [1mSELECT version FROM `schema_migrations`[0m
+  [1m[35m (7.0ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150922055141')
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916180205')[0m
+  [1m[35m (3.4ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916174804')
+  [1m[36m (3.8ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150922034653')[0m
+  [1m[35m (2.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150920051756')
+  [1m[36m (3.3ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150921055915')[0m
+  [1m[35m (3.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916055006')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150918083740')[0m
+  [1m[35m (15.3ms)[0m  CREATE TABLE `services` (`id` int(11) auto_increment PRIMARY KEY, `addr_from` varchar(255), `addr_to` varchar(255), `date` date, `time` time, `num_passengers` int(11), `type_vehicle` varchar(255), `payment_method` varchar(255), `status` varchar(255), `user_id` int(11), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `driver_id` int(11)) ENGINE=InnoDB
+  [1m[36m (18.2ms)[0m  [1mCREATE  INDEX `index_services_on_user_id_and_created_at` USING btree ON `services` (`user_id`, `created_at`) [0m
+  [1m[35m (18.2ms)[0m  CREATE  INDEX `index_services_on_user_id` USING btree ON `services` (`user_id`) 
+  [1m[36m (8.7ms)[0m  [1mCREATE TABLE `users` (`id` int(11) auto_increment PRIMARY KEY, `nombre` varchar(255), `apellido` varchar(255), `correo` varchar(255), `password_digest` varchar(255), `created_at` datetime NOT NULL, `updated_at` datetime NOT NULL, `admin` tinyint(1) DEFAULT 0, `driver` tinyint(1) DEFAULT 0, `active` tinyint(1) DEFAULT 1) ENGINE=InnoDB[0m
+  [1m[35m (21.8ms)[0m  CREATE UNIQUE INDEX `index_users_on_correo` USING btree ON `users` (`correo`) 
+  [1m[36m (26.2ms)[0m  [1mALTER TABLE `services` ADD CONSTRAINT `fk_rails_51a813203f`
+FOREIGN KEY (`user_id`)
+  REFERENCES `users` (`id`)
+[0m
+  [1m[35m (11.6ms)[0m  CREATE TABLE `schema_migrations` (`version` varchar(255) NOT NULL) ENGINE=InnoDB
+  [1m[36m (27.8ms)[0m  [1mCREATE UNIQUE INDEX `unique_schema_migrations`  ON `schema_migrations` (`version`) [0m
+  [1m[35m (0.6ms)[0m  SELECT version FROM `schema_migrations`
+  [1m[36m (5.0ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150922055141')[0m
+  [1m[35m (3.5ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150916180205')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916174804')[0m
+  [1m[35m (4.1ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150922034653')
+  [1m[36m (3.4ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150920051756')[0m
+  [1m[35m (3.3ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150921055915')
+  [1m[36m (3.6ms)[0m  [1mINSERT INTO `schema_migrations` (version) VALUES ('20150916055006')[0m
+  [1m[35m (3.7ms)[0m  INSERT INTO `schema_migrations` (version) VALUES ('20150918083740')
+  [1m[36mActiveRecord::SchemaMigration Load (0.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'admin@taxixpress.com' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `admin`, `created_at`, `updated_at`) VALUES ('Juan', 'Perez', 'admin@taxixpress.com', '$2a$10$P/rd5.1Xw4NiLJA.Zf1.X.AQYUdnKwUuhRtPTRJPJBeDP6rXcmWg2', 1, '2015-09-22 08:19:44', '2015-09-22 08:19:44')
+  [1m[36m (4.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'example-1@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Kole McLaughlin', 'incidunt', 'example-1@railstutorial.org', '$2a$10$98wQjs7g6oGM8py.KmwkRO8UI/TvAUHD/dehl6DhgmhocR0oASjOS', '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (6.5ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'example-2@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Dr. Richie Bogan', 'possimus', 'example-2@railstutorial.org', '$2a$10$O4DG.sDsOMXqTDsToy90/u9mKzqExt8m7NjCaQp5B7Hc3iHfsdc6i', '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (6.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.7ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'example-3@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Malika Batz', 'dolorum', 'example-3@railstutorial.org', '$2a$10$ib97jWCXkMuf45MTwmCdAuzTz.L0LaAYL70QXaUF4K0qTTO7fwYnS', '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (5.2ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.4ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'chofer-1@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `driver`, `active`, `created_at`, `updated_at`) VALUES ('Randall Farrell', 'reiciendis', 'chofer-1@railstutorial.org', '$2a$10$EWL8gm0O1uhZwJfiETwBluWkPZJp4JfKjK1Tp4v1ACvYffJtpEnQW', 1, 0, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (6.0ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'chofer-2@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `driver`, `active`, `created_at`, `updated_at`) VALUES ('Estell Hand', 'ex', 'chofer-2@railstutorial.org', '$2a$10$6HEIFUwnwrV8jD0UHq11k.NgfDq6Hf04RArkmXxicQjgJ83VaJx6e', 1, 0, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (5.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'chofer-3@railstutorial.org' LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `driver`, `active`, `created_at`, `updated_at`) VALUES ('Edna Konopelski', 'minus', 'chofer-3@railstutorial.org', '$2a$10$xBdvrhqiWwW9l6nB574cP.0acM.FUtBnfVuQzTznb99Ej2vFabTSW', 1, 0, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (5.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('249 Yundt Squares', '499 Leslie Extensions', '2015-09-16', '2015-09-22 08:19:45.893504', 3, 'est', 'Cormier', 'Pendiente', 1, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (7.2ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('99981 Weissnat Curve', '72752 Iva Ports', '2015-09-13', '2015-09-22 08:19:45.977757', 2, 'nemo', 'Hessel', 'Pendiente', 1, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (4.3ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('591 Lebsack Port', '329 Franecki Junction', '2015-09-18', '2015-09-22 08:19:45.988958', 1, 'maiores', 'Jast', 'Pendiente', 1, '2015-09-22 08:19:45', '2015-09-22 08:19:45')
+  [1m[36m (4.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('11225 Leon Villages', '17559 Mallory Rue', '2015-09-20', '2015-09-22 08:19:45.999658', 3, 'neque', 'Sauer', 'Pendiente', 2, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (5.1ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('75966 Krajcik Spurs', '74806 Bode Loop', '2015-09-12', '2015-09-22 08:19:46.011838', 3, 'minima', 'Little', 'Pendiente', 2, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (5.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('75594 Connelly Lock', '784 Moore Causeway', '2015-09-18', '2015-09-22 08:19:46.025888', 3, 'omnis', 'Jacobs', 'Pendiente', 2, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (8.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.9ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('98817 Kertzmann Mountain', '722 Kshlerin Cliffs', '2015-09-16', '2015-09-22 08:19:46.042666', 1, 'accusamus', 'Beier', 'Pendiente', 3, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (9.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('85862 Thurman Extensions', '35438 Mauricio Village', '2015-09-13', '2015-09-22 08:19:46.062447', 1, 'consequatur', 'Schmeler', 'Pendiente', 3, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (6.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 3 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO `services` (`addr_from`, `addr_to`, `date`, `time`, `num_passengers`, `payment_method`, `type_vehicle`, `status`, `user_id`, `created_at`, `updated_at`) VALUES ('765 Okey Trace', '684 Brianne Tunnel', '2015-09-16', '2015-09-22 08:19:46.082361', 3, 'asperiores', 'Rolfson', 'Pendiente', 3, '2015-09-22 08:19:46', '2015-09-22 08:19:46')
+  [1m[36m (8.5ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/" for 190.235.145.136 at 2015-09-22 08:20:21 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (320.8ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 2252ms (Views: 2235.8ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/admin.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:24 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:25 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 190.235.145.136 at 2015-09-22 08:20:25 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/image_01-9931a5d00c1a0e4399fcf4ce0368c868b07cbe82882e11d40443233a85f45b81.jpg" for 190.235.145.136 at 2015-09-22 08:20:25 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/image_02-99009082ed340ab166633defcd353cde08ec57689d101fe7251551bfd50d9ac4.jpg" for 190.235.145.136 at 2015-09-22 08:20:25 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jumbo_image-937ba368394124dec6fb8c79e62d587891a5e50668a6007b271b67b1c354f57d.jpg" for 190.235.145.136 at 2015-09-22 08:20:26 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 190.235.145.136 at 2015-09-22 08:20:29 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (7.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 444ms (Views: 441.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/images/favicon.ico" for 190.235.145.136 at 2015-09-22 08:20:32 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:31:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (5.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (26.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (3.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (151.4ms)
+
+
+Started GET "/users/new" for 190.235.145.136 at 2015-09-22 08:20:40 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (954.5ms)
+  Rendered users/new.html.erb within layouts/application (957.0ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 1608ms (Views: 1595.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/drivers/new" for 190.235.145.136 at 2015-09-22 08:20:45 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DriversController#new as HTML
+  Rendered drivers/_form.html.erb (242.1ms)
+  Rendered drivers/new.html.erb within layouts/application (245.3ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 622ms (Views: 620.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/login" for 190.235.145.136 at 2015-09-22 08:20:51 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (82.6ms)
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 486ms (Views: 484.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/login" for 190.235.145.136 at 2015-09-22 08:21:04 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"nJTabUNEORstr9aPMA/EIVXXPnR9P2PftE2s2uzL07HcGw3oHPbiLEZjgDJcG3RJbERN7eh3xcY5mU1Ha0bQjQ==", "session"=>{"correo"=>"admin@taxixpress.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`correo` = 'admin@taxixpress.com' LIMIT 1[0m
+Redirected to https://dew2-acron-bn.c9.io/admin
+Completed 302 Found in 79ms (ActiveRecord: 0.8ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:21:05 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.9ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (29.1ms)
+  Rendered admin/index.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 423ms (Views: 403.0ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:21:09 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.3ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (6.1ms)
+  Rendered admin/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 435ms (Views: 429.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users" for 190.235.145.136 at 2015-09-22 08:21:11 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` LIMIT 30 OFFSET 0
+  Rendered users/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 409ms (Views: 404.1ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/drivers" for 190.235.145.136 at 2015-09-22 08:21:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1
+  Rendered admin/drivers.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 361ms (Views: 356.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 190.235.145.136 at 2015-09-22 08:21:23 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` LIMIT 30 OFFSET 0[0m
+  Rendered users/index.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 489ms (Views: 481.3ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/admin/drivers" for 190.235.145.136 at 2015-09-22 08:21:26 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[35mUser Load (1.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1[0m
+  Rendered admin/drivers.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 407ms (Views: 401.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/admin/services" for 190.235.145.136 at 2015-09-22 08:21:30 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#services as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.8ms)[0m  [1mSELECT `services`.* FROM `services`  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (6.7ms)
+  Rendered admin/services.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 352ms (Views: 347.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/users" for 190.235.145.136 at 2015-09-22 08:21:42 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `users`[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` LIMIT 30 OFFSET 0
+  Rendered users/index.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 534ms (Views: 527.6ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:21:50 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (0.3ms)[0m  SELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC
+  Rendered admin/_pending_services.html.erb (10.1ms)
+  Rendered admin/index.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 441ms (Views: 433.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/services/4" for 190.235.145.136 at 2015-09-22 08:21:54 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mService Load (1.0ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered services/show.html.erb within layouts/application (7.4ms)
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.6ms)
+
+ActionView::Template::Error (undefined method `nombre' for nil:NilClass):
+    51: <% if current_user.admin? %>
+    52:   <p>
+    53:     <strong>Conductor:</strong>
+    54:     <%= @driver.nombre + " " + @driver.apellido %>
+    55:   </p>
+    56: <% end %>
+    57: <%= link_to 'Ver todos los Servicios', admin_services_path %>
+  app/views/services/show.html.erb:54:in `_app_views_services_show_html_erb__3156452602026259488_70202035844320'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (6.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (71.1ms)
+
+
+Started GET "/services/4" for 190.235.145.136 at 2015-09-22 08:21:55 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mService Load (0.4ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered services/show.html.erb within layouts/application (26.8ms)
+Completed 500 Internal Server Error in 54ms (ActiveRecord: 0.9ms)
+
+ActionView::Template::Error (undefined method `nombre' for nil:NilClass):
+    51: <% if current_user.admin? %>
+    52:   <p>
+    53:     <strong>Conductor:</strong>
+    54:     <%= @driver.nombre + " " + @driver.apellido %>
+    55:   </p>
+    56: <% end %>
+    57: <%= link_to 'Ver todos los Servicios', admin_services_path %>
+  app/views/services/show.html.erb:54:in `_app_views_services_show_html_erb__3156452602026259488_70201811330260'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (14.2ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (12.6ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (69.2ms)
+
+
+Started GET "/services/4/edit" for 190.235.145.136 at 2015-09-22 08:22:12 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (4.1ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1 AND `users`.`active` = 1[0m
+  Rendered services/_services_form.html.erb (346.2ms)
+  Rendered services/edit.html.erb within layouts/application (350.2ms)
+Completed 200 OK in 816ms (Views: 802.9ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:25:10 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.4ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (12.9ms)
+  Rendered admin/index.html.erb within layouts/application (17.3ms)
+Completed 200 OK in 571ms (Views: 557.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:25:12 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (5.8ms)
+  Rendered admin/index.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 410ms (Views: 406.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/services/4" for 190.235.145.136 at 2015-09-22 08:25:13 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mService Load (0.3ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered services/show.html.erb within layouts/application (9.0ms)
+Completed 500 Internal Server Error in 19ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/home/ubuntu/workspace/app/views/services/show.html.erb:62: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/ubuntu/workspace/app/views/services/show.html.erb:64: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/services/show.html.erb:62: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/services/show.html.erb:64: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (10.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (5.3ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (56.6ms)
+
+
+Started GET "/services/4" for 190.235.145.136 at 2015-09-22 08:25:15 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mService Load (0.3ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  Rendered services/show.html.erb within layouts/application (4.6ms)
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.5ms)
+
+SyntaxError (/home/ubuntu/workspace/app/views/services/show.html.erb:62: syntax error, unexpected keyword_ensure, expecting keyword_end
+/home/ubuntu/workspace/app/views/services/show.html.erb:64: syntax error, unexpected end-of-input, expecting keyword_end):
+  app/views/services/show.html.erb:62: syntax error, unexpected keyword_ensure, expecting keyword_end
+  app/views/services/show.html.erb:64: syntax error, unexpected end-of-input, expecting keyword_end
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_source.erb (13.1ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (7.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (65.6ms)
+
+
+Started GET "/services/4" for 190.235.145.136 at 2015-09-22 08:26:16 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mService Load (0.3ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered services/show.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 428ms (Views: 421.1ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/admin.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:16 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap_and_overrides.self-071532801780aba70ed210de99af562dc719c1639a883bab45421375eac8b9d5.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/main.self-980b7d72f7b29d1d2c986f2a5adb8642c32bd33c7065ec52fcde6ada60106dc3.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:17 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/main.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 190.235.145.136 at 2015-09-22 08:26:18 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:26:31 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (0.3ms)[0m  SELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC
+  Rendered admin/_pending_services.html.erb (8.2ms)
+  Rendered admin/index.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 342ms (Views: 334.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/services/4/edit" for 190.235.145.136 at 2015-09-22 08:26:33 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (0.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1 AND `users`.`active` = 1[0m
+  Rendered services/_services_form.html.erb (305.2ms)
+  Rendered services/edit.html.erb within layouts/application (306.5ms)
+Completed 200 OK in 625ms (Views: 620.5ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/admin/drivers" for 190.235.145.136 at 2015-09-22 08:26:42 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1[0m
+  Rendered admin/drivers.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 338ms (Views: 335.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/5/edit" for 190.235.145.136 at 2015-09-22 08:26:46 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered users/_form.html.erb (181.8ms)
+  Rendered users/edit.html.erb within layouts/application (184.6ms)
+Completed 200 OK in 495ms (Views: 490.1ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/users/5" for 190.235.145.136 at 2015-09-22 08:26:53 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"v+9xV8DfQS5K4awKd7dsIcb6o2/U6Xki0ClpYlDkwpH/YKbSn22aGSEt+rcbo9xJ/2nQ9kGh3ztd/Yj/12nBrQ==", "user"=>{"nombre"=>"Randall Farrell", "apellido"=>"reiciendis", "correo"=>"chofer-1@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "active"=>"true"}, "commit"=>"Enviar", "id"=>"5"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+Unpermitted parameter: active
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (0.6ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`correo` = 'chofer-1@railstutorial.org' AND `users`.`id` != 5) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  UPDATE `users` SET `password_digest` = '$2a$10$p3GUlFvr/jOKlj2yl4olCuieNAqoWjvgy8CfmkMRSUKpDRZASyO4e', `updated_at` = '2015-09-22 08:26:53' WHERE `users`.`id` = 5
+  [1m[36m (5.3ms)[0m  [1mCOMMIT[0m
+Redirected to https://dew2-acron-bn.c9.io/users/5
+Completed 302 Found in 126ms (ActiveRecord: 7.3ms)
+
+
+Started GET "/users/5" for 190.235.145.136 at 2015-09-22 08:26:53 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mCACHE (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1  [["id", "5"]]
+  Rendered services/_services_form.html.erb (277.1ms)
+  [1m[36m (0.7ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1[0m
+  [1m[35mService Load (0.5ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (3.7ms)
+  Rendered users/show.html.erb within layouts/application (288.2ms)
+Completed 200 OK in 689ms (Views: 657.5ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/users" for 190.235.145.136 at 2015-09-22 08:27:00 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.4ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` LIMIT 30 OFFSET 0[0m
+  Rendered users/index.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 438ms (Views: 433.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin" for 190.235.145.136 at 2015-09-22 08:27:01 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (5.3ms)
+  Rendered admin/index.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 366ms (Views: 362.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/services/4/edit" for 190.235.145.136 at 2015-09-22 08:27:04 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.6ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1 AND `users`.`active` = 1
+  Rendered services/_services_form.html.erb (344.2ms)
+  Rendered services/edit.html.erb within layouts/application (346.1ms)
+Completed 200 OK in 751ms (Views: 730.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/drivers" for 190.235.145.136 at 2015-09-22 08:30:09 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1
+  Rendered admin/drivers.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 483ms (Views: 452.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/users/5/edit" for 190.235.145.136 at 2015-09-22 08:30:12 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered users/_form.html.erb (235.8ms)
+  Rendered users/edit.html.erb within layouts/application (238.7ms)
+Completed 200 OK in 590ms (Views: 584.5ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/5" for 190.235.145.136 at 2015-09-22 08:30:20 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"k23AnlI98qbXNvZtj0J4SMopqXVwsGsEkPTXbsf9DFnT4hcbDY8pkbz6oNDjVsgg87ra7OX4zR0dIDbzQHAPZQ==", "user"=>{"nombre"=>"Randall Farrell", "apellido"=>"reiciendis", "correo"=>"chofer-1@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "active"=>"true"}, "commit"=>"Enviar", "id"=>"5"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+Unpermitted parameter: active
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.7ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`correo` = 'chofer-1@railstutorial.org' AND `users`.`id` != 5) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$Zwf8pSigXlaHMCAeM1BbP.DpeiYWWlynpM4p6GUNRZEOsDD6NA7cm', `updated_at` = '2015-09-22 08:30:20' WHERE `users`.`id` = 5[0m
+  [1m[35m (6.3ms)[0m  COMMIT
+Redirected to https://dew2-acron-bn.c9.io/users/5
+Completed 302 Found in 107ms (ActiveRecord: 8.2ms)
+
+
+Started GET "/users/5" for 190.235.145.136 at 2015-09-22 08:30:21 +0000
+Cannot render console from 190.235.145.136! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 5 LIMIT 1[0m  [["id", "5"]]
+  Rendered services/_services_form.html.erb (328.3ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (3.0ms)
+  Rendered users/show.html.erb within layouts/application (338.7ms)
+Completed 200 OK in 777ms (Views: 734.4ms | ActiveRecord: 4.2ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:03:54 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+  [1m[36mActiveRecord::SchemaMigration Load (5.8ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (855.2ms)
+  [1m[35mUser Load (30.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 2417ms (Views: 2343.1ms | ActiveRecord: 50.4ms)
+
+
+Started GET "/assets/admin.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter-bootstrap-static/bootstrap.self-77d963462a71b85aa6c39f0110994006fed4301154d937da52eb3884ff813853.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter-bootstrap-static/fontawesome.self-c1a8821f7eb1b195061d7706930814ecc6bd44db4c68f208da5fe14845fa11ea.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/bootstrap_and_overrides.self-071532801780aba70ed210de99af562dc719c1639a883bab45421375eac8b9d5.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/main.self-980b7d72f7b29d1d2c986f2a5adb8642c32bd33c7065ec52fcde6ada60106dc3.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery.self-a714331225dda820228db323939889f149aec0127aeb06255646b616ba1ca419.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:58 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jquery_ujs.self-d456baa54c1fa6be2ec3711f0a72ddf7a5b2f34a6b4f515f33767d6207b7d4b3.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/transition.self-db278e3a8fa6249c16796b113ebd29e11ef4e2cd021618ed84895d524a4511e0.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/alert.self-ebce91ec66c71bcee451ea7da9128fd1bf8faa02c6d22ea04c598423431e4c08.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/modal.self-ab1767545e27c0dbd36971e656ae4927171f673e3d932cdec2cbef39e991952b.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/dropdown.self-8bb9309b6c24a4ba6b94026a049d25b13bdc0553b6fe83255c14a715ba624cc4.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/scrollspy.self-bd0c6724cdc75302fe98dfeff923112b76c1673cf4a0752a7050b7feea15594c.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/tooltip.self-d7f9330825307d053f68da11bb9ddc9b070df72deef3d115f2f3d55f66b17457.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/tab.self-7e3ee4a243bb416b5f0111a0be08f8547c5d72ba71fe4afe4a4a007f5cb4e10e.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/popover.self-cd672ecad3b549e1dbd89bfd044e5812d6fdade56f42d48e3acee0c3f4614526.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/button.self-ceb562de883e04359bb2c06f07bdf6ecf065cc8a5027e2e58857c5e91b0b68e3.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/carousel.self-5d09995e01b647168888180d40e271f9a6759d68ae7ac029d7026af58813d376.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/collapse.self-a87553101c955a01e2e8c81fad69a16582ddbf58fe95d5eb335dde5567af7647.js?body=1" for 200.0.118.173 at 2015-09-24 00:03:59 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap/affix.self-14e04bbe71282aa039322ab93e3a3a886ddede5f59a2f365f7c861f697bbeb21.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:00 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/twitter/bootstrap.self-fbfa5ad7d9aa0afe439ec4ff3883acc4cb92b62cb67c40d674320c9aa1d4642d.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:00 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/turbolinks.self-c37727e9bd6b2735da5c311aa83fead54ed0be6cc8bd9a65309e9c5abe2cbfff.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:00 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/admin.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:00 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:04:00 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (17.9ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 1571ms (Views: 1569.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/bootstrap.self-fdc98dee79ee88255e10cac6caa91338165cb76cf0d263744d8d90011fc2ef8f.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/drivers.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/main.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/services.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/sessions.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/users.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/application.self-f8806224e027f3e3f0138ea9ce99319e298dfdb323304d1f1be6eae8e8c74724.js?body=1" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/image_01-9931a5d00c1a0e4399fcf4ce0368c868b07cbe82882e11d40443233a85f45b81.jpg" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/image_02-99009082ed340ab166633defcd353cde08ec57689d101fe7251551bfd50d9ac4.jpg" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/assets/jumbo_image-937ba368394124dec6fb8c79e62d587891a5e50668a6007b271b67b1c354f57d.jpg" for 200.0.118.173 at 2015-09-24 00:04:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+
+Started GET "/images/favicon.ico" for 200.0.118.173 at 2015-09-24 00:04:06 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+
+ActionController::RoutingError (No route matches [GET] "/images/favicon.ico"):
+  actionpack (4.2.4) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  web-console (2.2.1) lib/web_console/middleware.rb:31:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.4) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.4) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.4) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.4) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.4) lib/action_dispatch/middleware/static.rb:116:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.4) lib/rails/engine.rb:518:in `call'
+  railties (4.2.4) lib/rails/application.rb:165:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  /usr/local/rvm/rubies/ruby-2.2.1/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_route.html.erb (3.7ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/routes/_table.html.erb (130.5ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (10.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.2.1/gems/actionpack-4.2.4/lib/action_dispatch/middleware/templates/rescues/routing_error.html.erb within rescues/layout (306.2ms)
+
+
+Started GET "/users/new" for 200.0.118.173 at 2015-09-24 00:04:17 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#new as HTML
+  Rendered users/_form.html.erb (2195.2ms)
+  Rendered users/new.html.erb within layouts/application (2199.1ms)
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 3370ms (Views: 3338.7ms | ActiveRecord: 4.7ms)
+
+
+Started POST "/users" for 200.0.118.173 at 2015-09-24 00:04:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"MErHWf7u6XkGeY26l1gkMurZ2I6xYIsijMcz2C6/ldQsteUUypk0MZ2cRBGKFPm/jCaistL+GvjnK/NqVBjdKg==", "user"=>{"nombre"=>"Eric", "apellido"=>"Rodrich", "correo"=>"erodrich@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Enviar"}
+  [1m[36m (0.3ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (15.1ms)[0m  SELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'erodrich@gmail.com' LIMIT 1
+  [1m[36mSQL (22.0ms)[0m  [1mINSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `created_at`, `updated_at`) VALUES ('Eric', 'Rodrich', 'erodrich@gmail.com', '$2a$10$eiu5Zm.MUdgT1/aZSMY7uOKkIwVfym4ie9EWLkKi.8h1YXgn5JkZK', '2015-09-24 00:04:37', '2015-09-24 00:04:37')[0m
+  [1m[35m (38.4ms)[0m  COMMIT
+Redirected to https://dew2-acron-bn.c9.io/users/8
+Completed 302 Found in 291ms (ActiveRecord: 75.7ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:04:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (6.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m  [["id", "8"]]
+  Rendered services/_services_form.html.erb (627.8ms)
+  [1m[35m (17.3ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8
+  [1m[36mService Load (2.7ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (9.8ms)
+  Rendered users/show.html.erb within layouts/application (785.2ms)
+Completed 200 OK in 1983ms (Views: 1799.9ms | ActiveRecord: 42.2ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:05:12 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Redirected to https://dew2-acron-bn.c9.io/
+Filter chain halted as :admin_user rendered or redirected
+Completed 302 Found in 6ms (ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:05:12 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (8.2ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Completed 200 OK in 1111ms (Views: 1109.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:06:06 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Redirected to https://dew2-acron-bn.c9.io/
+Filter chain halted as :admin_user rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:06:06 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (10.4ms)
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Completed 200 OK in 1354ms (Views: 1351.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:08:09 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered users/_form.html.erb (958.6ms)
+  Rendered users/edit.html.erb within layouts/application (964.0ms)
+Completed 200 OK in 2055ms (Views: 2006.2ms | ActiveRecord: 8.2ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:08:16 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1  [["id", "8"]]
+  Rendered services/_services_form.html.erb (893.4ms)
+  [1m[36m (2.1ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8[0m
+  [1m[35mService Load (0.3ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (7.9ms)
+  Rendered users/show.html.erb within layouts/application (922.3ms)
+Completed 200 OK in 2221ms (Views: 2158.6ms | ActiveRecord: 10.4ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:08:22 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m  [["id", "8"]]
+  Rendered services/_services_form.html.erb (726.0ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8
+  [1m[36mService Load (0.3ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (1.6ms)
+  Rendered users/show.html.erb within layouts/application (733.4ms)
+Completed 200 OK in 2154ms (Views: 2141.9ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:08:33 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  Rendered users/_form.html.erb (388.2ms)
+  Rendered users/edit.html.erb within layouts/application (390.2ms)
+Completed 200 OK in 1398ms (Views: 1393.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:08:40 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1  [["id", "8"]]
+  Rendered services/_services_form.html.erb (590.1ms)
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8[0m
+  [1m[35mService Load (0.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (1.2ms)
+  Rendered users/show.html.erb within layouts/application (596.7ms)
+Completed 200 OK in 1729ms (Views: 1722.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:08:52 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  Rendered users/_form.html.erb (326.1ms)
+  Rendered users/edit.html.erb within layouts/application (328.6ms)
+Completed 200 OK in 1672ms (Views: 1668.0ms | ActiveRecord: 0.4ms)
+
+
+Started PATCH "/users/8" for 200.0.118.173 at 2015-09-24 00:09:08 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"GVgbce+lIdjyVCf9IpUShtsDfckO69wA/VbEKwQL3EkFpzk829L8kGmx7lY/2c8LvfwH9W11TdqWugSZfqyUtw==", "user"=>{"nombre"=>"Eric", "apellido"=>"Rodrich", "correo"=>"erodrich@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Enviar", "id"=>"8"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Redirected to https://dew2-acron-bn.c9.io/
+Filter chain halted as :admin_user rendered or redirected
+Completed 302 Found in 10ms (ActiveRecord: 1.0ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:09:08 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (9.4ms)
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Completed 200 OK in 1049ms (Views: 1047.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:09:15 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1  [["id", "8"]]
+  Rendered services/_services_form.html.erb (627.0ms)
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8[0m
+  [1m[35mService Load (0.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (1.7ms)
+  Rendered users/show.html.erb within layouts/application (785.7ms)
+Completed 200 OK in 1610ms (Views: 1600.9ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/services" for 200.0.118.173 at 2015-09-24 00:09:41 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mMXBwz3Yjhe8F60M1EorWPn2GlDRJ1tu7PY8ofprwDGEOuOOCa9TXyfyZKfJBvbVnwlgbLK5yrSHGvwTgMyIzw==", "service"=>{"addr_from"=>"av benavides 123", "addr_to"=>"av salaverry 1", "date(1i)"=>"2015", "date(2i)"=>"9", "date(3i)"=>"24", "time(1i)"=>"2015", "time(2i)"=>"9", "time(3i)"=>"24", "time(4i)"=>"00", "time(5i)"=>"09", "num_passengers"=>"2", "type_vehicle"=>"sedan", "payment_method"=>"visa"}, "commit"=>"Enviar"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mSQL (11.8ms)[0m  [1mINSERT INTO `services` (`addr_from`, `addr_to`, `num_passengers`, `payment_method`, `type_vehicle`, `date`, `time`, `user_id`, `created_at`, `updated_at`) VALUES ('av benavides 123', 'av salaverry 1', 2, 'visa', 'sedan', '2015-09-24', '2015-09-24 00:09:00.000000', 8, '2015-09-24 00:09:41', '2015-09-24 00:09:41')[0m
+  [1m[35m (11.0ms)[0m  COMMIT
+Redirected to https://dew2-acron-bn.c9.io/users/8
+Completed 302 Found in 38ms (ActiveRecord: 23.3ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:09:41 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m  [["id", "8"]]
+  Rendered services/_services_form.html.erb (554.2ms)
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 8
+  [1m[36mService Load (2.6ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 8  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (136.8ms)
+  Rendered users/show.html.erb within layouts/application (705.4ms)
+Completed 200 OK in 1556ms (Views: 1544.5ms | ActiveRecord: 4.1ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:10:04 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (10.1ms)
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Completed 200 OK in 1375ms (Views: 1372.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/drivers/new" for 200.0.118.173 at 2015-09-24 00:10:07 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by DriversController#new as HTML
+  Rendered drivers/_form.html.erb (584.3ms)
+  Rendered drivers/new.html.erb within layouts/application (589.5ms)
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Completed 200 OK in 1836ms (Views: 1832.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/users" for 200.0.118.173 at 2015-09-24 00:10:26 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"VP/IFcV2rn231wI5m71eQo2iN7C6YWqC1+8TKCYUch5IAOpY8QFzNSwyy5KG8YPP611NjNn/+1i8A9OaXLM64A==", "user"=>{"nombre"=>"pedro", "apellido"=>"picapiedra", "correo"=>"ppiedra@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "driver"=>"1"}, "commit"=>"Enviar"}
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36mUser Exists (0.8ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE `users`.`correo` = 'ppiedra@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (2.2ms)[0m  INSERT INTO `users` (`nombre`, `apellido`, `correo`, `password_digest`, `driver`, `active`, `created_at`, `updated_at`) VALUES ('pedro', 'picapiedra', 'ppiedra@gmail.com', '$2a$10$vOL1MgnLlttw.RcjzCyf6.DaguI3n4ynckC7nvYYxvNmxy6oaAeES', 1, 0, '2015-09-24 00:10:27', '2015-09-24 00:10:27')
+  [1m[36m (11.9ms)[0m  [1mCOMMIT[0m
+Redirected to https://dew2-acron-bn.c9.io/
+Completed 302 Found in 192ms (ActiveRecord: 15.2ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:10:27 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (15.5ms)
+  [1m[35mUser Load (121.1ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Completed 200 OK in 968ms (Views: 844.4ms | ActiveRecord: 121.1ms)
+
+
+Started GET "/admin" for 200.0.118.173 at 2015-09-24 00:10:36 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+Redirected to https://dew2-acron-bn.c9.io/
+Filter chain halted as :admin_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.2ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:10:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (7.5ms)
+  [1m[35mUser Load (0.6ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1
+Completed 200 OK in 822ms (Views: 820.3ms | ActiveRecord: 0.6ms)
+
+
+Started DELETE "/logout" for 200.0.118.173 at 2015-09-24 00:10:42 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"luf7K5wUM+ixsUzF/jCq0zKrdnfvTsuv/T1SNcl/S4GKGNlmqGPuoCpUhW7jfHdeVFQMS4zQWnWW0ZKHs9gDfw=="}
+Redirected to https://dew2-acron-bn.c9.io/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:10:43 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (6.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 977ms (Views: 975.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/admin" for 200.0.118.173 at 2015-09-24 00:10:49 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Redirected to https://dew2-acron-bn.c9.io/login
+Filter chain halted as :logged_in_user rendered or redirected
+Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/login" for 200.0.118.173 at 2015-09-24 00:10:49 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (53.7ms)
+  [1m[36mUser Load (118.4ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 880ms (Views: 759.9ms | ActiveRecord: 118.4ms)
+
+
+Started POST "/login" for 200.0.118.173 at 2015-09-24 00:11:03 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"mvPVLUsRhmhbDkwGvvCc9TTQYNcBnIUYCKeDOuY5CBeGDPdgf2ZbIMDrha2jvEF4Ui8a62ICFMJjS0OInJ5A6Q==", "session"=>{"correo"=>"admin@taxixpress.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`correo` = 'admin@taxixpress.com' LIMIT 1
+Redirected to https://dew2-acron-bn.c9.io/admin
+Completed 302 Found in 194ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/admin" for 200.0.118.173 at 2015-09-24 00:11:04 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[36mUser Load (2.5ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (3.1ms)[0m  SELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC
+  Rendered admin/_pending_services.html.erb (12.2ms)
+  Rendered admin/index.html.erb within layouts/application (16.1ms)
+Completed 200 OK in 876ms (Views: 864.3ms | ActiveRecord: 5.7ms)
+
+
+Started GET "/users" for 200.0.118.173 at 2015-09-24 00:11:15 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#index as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.5ms)[0m  SELECT COUNT(*) FROM `users`
+  [1m[36mUser Load (13.2ms)[0m  [1mSELECT  `users`.* FROM `users` LIMIT 30 OFFSET 0[0m
+  Rendered users/index.html.erb within layouts/application (23.1ms)
+Completed 200 OK in 763ms (Views: 745.0ms | ActiveRecord: 14.0ms)
+
+
+Started GET "/users/8" for 200.0.118.173 at 2015-09-24 00:11:23 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1  [["id", "8"]]
+  Rendered services/_services_form.html.erb (715.7ms)
+  [1m[36m (0.9ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1[0m
+  [1m[35mService Load (2.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (4.4ms)
+  Rendered users/show.html.erb within layouts/application (727.6ms)
+Completed 200 OK in 1733ms (Views: 1719.6ms | ActiveRecord: 3.7ms)
+
+
+Started GET "/users/8/edit" for 200.0.118.173 at 2015-09-24 00:11:27 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (2.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered users/_form.html.erb (588.3ms)
+  Rendered users/edit.html.erb within layouts/application (591.8ms)
+Completed 200 OK in 1978ms (Views: 1954.7ms | ActiveRecord: 3.1ms)
+
+
+Started GET "/admin/drivers" for 200.0.118.173 at 2015-09-24 00:11:33 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1
+  Rendered admin/drivers.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 1206ms (Views: 1200.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/users/9/edit" for 200.0.118.173 at 2015-09-24 00:11:39 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered users/_form.html.erb (551.2ms)
+  Rendered users/edit.html.erb within layouts/application (553.8ms)
+Completed 200 OK in 1414ms (Views: 1409.0ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/users/9" for 200.0.118.173 at 2015-09-24 00:11:48 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"/CvzfjMHlpOGdheJUTmpelvd8hZFEOX5fvj/Fr/fq2jg1NEzB3BL2x2T3iJMdXT3PSKIKiaOdCMVFD+kxXjjlg==", "user"=>{"nombre"=>"pedro", "apellido"=>"picapiedra", "correo"=>"ppiedra@gmail.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "active"=>"true"}, "commit"=>"Enviar", "id"=>"9"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.9ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`correo` = 'ppiedra@gmail.com' AND `users`.`id` != 9) LIMIT 1
+  [1m[36mSQL (4.5ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$8YDiUqwOsie/9kUJCqDZuOVkBCwIuXQGk77VrlBKnKjWIcbxCfKii', `active` = 1, `updated_at` = '2015-09-24 00:11:48' WHERE `users`.`id` = 9[0m
+  [1m[35m (11.6ms)[0m  COMMIT
+Redirected to https://dew2-acron-bn.c9.io/users/9
+Completed 302 Found in 221ms (ActiveRecord: 17.6ms)
+
+
+Started GET "/users/9" for 200.0.118.173 at 2015-09-24 00:11:48 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (1.8ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m  [["id", "9"]]
+  Rendered services/_services_form.html.erb (834.1ms)
+  [1m[35m (0.2ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1
+  [1m[36mService Load (0.2ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (2.4ms)
+  Rendered users/show.html.erb within layouts/application (841.8ms)
+Completed 200 OK in 2027ms (Views: 2011.9ms | ActiveRecord: 2.9ms)
+
+
+Started GET "/admin/services" for 200.0.118.173 at 2015-09-24 00:11:57 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#services as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (1.6ms)[0m  [1mSELECT `services`.* FROM `services`  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (12.9ms)
+  Rendered admin/services.html.erb within layouts/application (15.8ms)
+Completed 200 OK in 935ms (Views: 929.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/services/10/edit" for 200.0.118.173 at 2015-09-24 00:12:05 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#edit as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.5ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`id` = 10  ORDER BY `services`.`created_at` DESC LIMIT 1[0m
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1 AND `users`.`active` = 1
+  Rendered services/_services_form.html.erb (789.7ms)
+  Rendered services/edit.html.erb within layouts/application (792.0ms)
+Completed 200 OK in 1793ms (Views: 1786.4ms | ActiveRecord: 1.4ms)
+
+
+Started PATCH "/services/10" for 200.0.118.173 at 2015-09-24 00:12:12 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"uvllnYzxZKtEtkE/qAayBP7LkgkO3uc0lCZzFt4V9remBkfQuIa5499TiJS1Sm+JmDToNW1Adu7/yrOkpLK+SQ==", "service"=>{"addr_from"=>"av benavides 123", "addr_to"=>"av salaverry 1", "date(1i)"=>"2015", "date(2i)"=>"9", "date(3i)"=>"24", "time(1i)"=>"2000", "time(2i)"=>"1", "time(3i)"=>"1", "time(4i)"=>"00", "time(5i)"=>"09", "num_passengers"=>"2", "type_vehicle"=>"sedan", "payment_method"=>"visa", "status"=>"Asignado", "driver_id"=>"9"}, "commit"=>"Enviar", "id"=>"10"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (0.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 10  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.8ms)[0m  UPDATE `services` SET `status` = 'Asignado', `driver_id` = 9, `updated_at` = '2015-09-24 00:12:12' WHERE `services`.`id` = 10
+  [1m[36m (9.1ms)[0m  [1mCOMMIT[0m
+Redirected to https://dew2-acron-bn.c9.io/services/10
+Completed 302 Found in 27ms (ActiveRecord: 14.5ms)
+
+
+Started GET "/services/10" for 200.0.118.173 at 2015-09-24 00:12:13 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mService Load (0.6ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 10  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 8 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered services/show.html.erb within layouts/application (3.5ms)
+Completed 200 OK in 920ms (Views: 913.0ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/admin" for 200.0.118.173 at 2015-09-24 00:12:19 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (1.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.9ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (7.7ms)
+  Rendered admin/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 925ms (Views: 920.4ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/services/4/edit" for 200.0.118.173 at 2015-09-24 00:12:21 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.6ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1[0m
+  [1m[35mUser Load (3.0ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1 AND `users`.`active` = 1
+  Rendered services/_services_form.html.erb (750.9ms)
+  Rendered services/edit.html.erb within layouts/application (752.4ms)
+Completed 200 OK in 1765ms (Views: 1756.4ms | ActiveRecord: 4.0ms)
+
+
+Started PATCH "/services/4" for 200.0.118.173 at 2015-09-24 00:12:27 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8Axph7bjTtxHJNJbZZFesBo2lfRm/Kh5faEB+jcKoyDs80vKgpSTlNzBG/B43YM9fMnvyAViOaMWTcFITa3r3g==", "service"=>{"addr_from"=>"11225 Leon Villages", "addr_to"=>"17559 Mallory Rue", "date(1i)"=>"2015", "date(2i)"=>"9", "date(3i)"=>"20", "time(1i)"=>"2000", "time(2i)"=>"1", "time(3i)"=>"1", "time(4i)"=>"08", "time(5i)"=>"19", "num_passengers"=>"3", "type_vehicle"=>"Sauer", "payment_method"=>"neque", "status"=>"Asignado", "driver_id"=>"9"}, "commit"=>"Enviar", "id"=>"4"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mService Load (0.2ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (4.4ms)[0m  UPDATE `services` SET `status` = 'Asignado', `driver_id` = 9, `time` = '2000-01-01 08:19:00.000000', `updated_at` = '2015-09-24 00:12:27' WHERE `services`.`id` = 4
+  [1m[36m (11.1ms)[0m  [1mCOMMIT[0m
+Redirected to https://dew2-acron-bn.c9.io/services/4
+Completed 302 Found in 25ms (ActiveRecord: 15.9ms)
+
+
+Started GET "/services/4" for 200.0.118.173 at 2015-09-24 00:12:27 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by ServicesController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mService Load (0.8ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`id` = 4  ORDER BY `services`.`created_at` DESC LIMIT 1
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 2 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered services/show.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 950ms (Views: 943.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/admin" for 200.0.118.173 at 2015-09-24 00:12:32 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mService Load (0.7ms)[0m  [1mSELECT `services`.* FROM `services` WHERE `services`.`status` = 'Pendiente'  ORDER BY `services`.`created_at` DESC[0m
+  Rendered admin/_pending_services.html.erb (6.3ms)
+  Rendered admin/index.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 1003ms (Views: 997.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/admin/drivers" for 200.0.118.173 at 2015-09-24 00:12:34 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1[0m
+  Rendered admin/drivers.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 916ms (Views: 913.2ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/users/7/edit" for 200.0.118.173 at 2015-09-24 00:12:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  Rendered users/_form.html.erb (361.3ms)
+  Rendered users/edit.html.erb within layouts/application (456.0ms)
+Completed 200 OK in 1333ms (Views: 1329.9ms | ActiveRecord: 0.6ms)
+
+
+Started PATCH "/users/7" for 200.0.118.173 at 2015-09-24 00:12:45 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dwN/O6peT3oC298T3DfTEXyoD6x9NSiadRSdhTtklHJr/F12nimSMpk+FrjBew6cGld1kB6ruUAe+F03QcPcjA==", "user"=>{"nombre"=>"Edna Konopelski", "apellido"=>"minus", "correo"=>"chofer-3@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "active"=>"true"}, "commit"=>"Enviar", "id"=>"7"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35m (0.2ms)[0m  BEGIN
+  [1m[36mUser Exists (1.5ms)[0m  [1mSELECT  1 AS one FROM `users` WHERE (`users`.`correo` = 'chofer-3@railstutorial.org' AND `users`.`id` != 7) LIMIT 1[0m
+  [1m[35mSQL (3.3ms)[0m  UPDATE `users` SET `password_digest` = '$2a$10$Kk.Y9RjlmRqybug0xHUFL.UGprBdPwmbrxzv1tGaR1L7Wao7Poz7S', `active` = 1, `updated_at` = '2015-09-24 00:12:45' WHERE `users`.`id` = 7
+  [1m[36m (12.7ms)[0m  [1mCOMMIT[0m
+Redirected to https://dew2-acron-bn.c9.io/users/7
+Completed 302 Found in 125ms (ActiveRecord: 18.0ms)
+
+
+Started GET "/users/7" for 200.0.118.173 at 2015-09-24 00:12:45 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 7 LIMIT 1  [["id", "7"]]
+  Rendered services/_services_form.html.erb (658.2ms)
+  [1m[36m (126.6ms)[0m  [1mSELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1[0m
+  [1m[35mService Load (0.4ms)[0m  SELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0
+  Rendered services/_service.html.erb (6.1ms)
+  Rendered users/show.html.erb within layouts/application (801.4ms)
+Completed 200 OK in 1863ms (Views: 1722.2ms | ActiveRecord: 127.7ms)
+
+
+Started GET "/admin/drivers" for 200.0.118.173 at 2015-09-24 00:12:53 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`driver` = 1
+  Rendered admin/drivers.html.erb within layouts/application (4.0ms)
+Completed 200 OK in 829ms (Views: 825.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/users/6/edit" for 200.0.118.173 at 2015-09-24 00:12:55 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  Rendered users/_form.html.erb (484.1ms)
+  Rendered users/edit.html.erb within layouts/application (486.3ms)
+Completed 200 OK in 1490ms (Views: 1486.1ms | ActiveRecord: 0.7ms)
+
+
+Started PATCH "/users/6" for 200.0.118.173 at 2015-09-24 00:13:02 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"Fc0zgY89DDxKd7TGGXMflmrC3CiUN066EZScXV2hu4cJMhHMu0rRdNGSfW0EP8IbDD2mFPep32B6eFzvJwbzeQ==", "user"=>{"nombre"=>"Estell Hand", "apellido"=>"ex", "correo"=>"chofer-2@railstutorial.org", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]", "active"=>"true"}, "commit"=>"Enviar", "id"=>"6"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.6ms)[0m  SELECT  1 AS one FROM `users` WHERE (`users`.`correo` = 'chofer-2@railstutorial.org' AND `users`.`id` != 6) LIMIT 1
+  [1m[36mSQL (4.3ms)[0m  [1mUPDATE `users` SET `password_digest` = '$2a$10$gykn6R5/pcWfZHbIOJEYI.T3bKW4JRggcGWfn2bJcdgNgirhqY4ei', `active` = 1, `updated_at` = '2015-09-24 00:13:03' WHERE `users`.`id` = 6[0m
+  [1m[35m (6.8ms)[0m  COMMIT
+Redirected to https://dew2-acron-bn.c9.io/users/6
+Completed 302 Found in 111ms (ActiveRecord: 12.4ms)
+
+
+Started GET "/users/6" for 200.0.118.173 at 2015-09-24 00:13:03 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (5.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1[0m
+  [1m[35mUser Load (0.3ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 6 LIMIT 1[0m  [["id", "6"]]
+  Rendered services/_services_form.html.erb (802.7ms)
+  [1m[35m (0.3ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 1
+  [1m[36mService Load (0.6ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 1  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (3.7ms)
+  Rendered users/show.html.erb within layouts/application (815.3ms)
+Completed 200 OK in 2038ms (Views: 2016.4ms | ActiveRecord: 7.2ms)
+
+
+Started GET "/admin/drivers" for 200.0.118.173 at 2015-09-24 00:13:32 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by AdminController#drivers as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 1 LIMIT 1
+  [1m[36mUser Load (1.1ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`driver` = 1[0m
+  Rendered admin/drivers.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 1073ms (Views: 1066.7ms | ActiveRecord: 1.5ms)
+
+
+Started DELETE "/logout" for 200.0.118.173 at 2015-09-24 00:13:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jmUPX8CUV8e48Zr7oS71jKe3CPmlgqNN+gsY3rJDY4qSmi0S9OOKjyMUU1C8YigBwUhyxcYcMpeR59hsyOQrdA=="}
+Redirected to https://dew2-acron-bn.c9.io/
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 200.0.118.173 at 2015-09-24 00:13:37 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by MainController#index as HTML
+  Rendered main/index.html.erb within layouts/application (24.4ms)
+  [1m[35mUser Load (2.4ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1
+Completed 200 OK in 1332ms (Views: 1328.5ms | ActiveRecord: 2.4ms)
+
+
+Started GET "/login" for 200.0.118.173 at 2015-09-24 00:13:40 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#new as HTML
+  Rendered sessions/new.html.erb within layouts/application (272.3ms)
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` IS NULL LIMIT 1[0m
+Completed 200 OK in 1454ms (Views: 1451.5ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/login" for 200.0.118.173 at 2015-09-24 00:13:51 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"yHWZBTWGMnKPozRTqe50YE6ptpPU8BwpSRh9cyZYKNnUirtIAfHvOhRG/fi0oqntKFbMr7dujfMi9L3BXP9gJw==", "session"=>{"correo"=>"ppiedra@gmail.com", "password"=>"[FILTERED]"}, "commit"=>"Log in"}
+  [1m[35mUser Load (2.7ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`correo` = 'ppiedra@gmail.com' LIMIT 1
+Redirected to https://dew2-acron-bn.c9.io/users/9
+Completed 302 Found in 127ms (ActiveRecord: 2.7ms)
+
+
+Started GET "/users/9" for 200.0.118.173 at 2015-09-24 00:13:51 +0000
+Cannot render console from 200.0.118.173! Allowed networks: 127.0.0.1, ::1, 127.0.0.0/127.255.255.255
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  `users`.* FROM `users` WHERE `users`.`id` = 9 LIMIT 1[0m  [["id", "9"]]
+  Rendered services/_services_form.html.erb (775.2ms)
+  [1m[35m (0.8ms)[0m  SELECT COUNT(*) FROM `services` WHERE `services`.`user_id` = 9
+  [1m[36mService Load (0.3ms)[0m  [1mSELECT  `services`.* FROM `services` WHERE `services`.`user_id` = 9  ORDER BY `services`.`created_at` DESC LIMIT 30 OFFSET 0[0m
+  Rendered services/_service.html.erb (1.2ms)
+  Rendered users/show.html.erb within layouts/application (788.6ms)
+Completed 200 OK in 1835ms (Views: 1815.1ms | ActiveRecord: 2.2ms)

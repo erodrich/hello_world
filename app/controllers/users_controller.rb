@@ -1,7 +1,7 @@
 class UsersController < ApplicationController
   before_action :logged_in_user, only: [:show]
   before_action :correct_user, only: [:show, :edit, :update]
-  before_action :admin_user, only: [:index, :edit, :update, :destroy]
+  before_action :admin_user, only: [:index, :update, :destroy]
   #  before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   # GET /users
@@ -99,7 +99,7 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:nombre, :apellido, :correo, :password, :password_confirmation, :driver)
+      params.require(:user).permit(:nombre, :apellido, :correo, :password, :password_confirmation, :driver, :active)
     end
     
   
